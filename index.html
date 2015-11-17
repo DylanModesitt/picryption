@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- MSC -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- SEO -->
+	<meta name="author" content="Dylan Modesitt">
+	<meta name="keywords" content="dylanmodesitt, Dylan Modesitt, picryption">
+	<title>Picryption</title>
+
+	<!-- Bootstrap Core CSS - Uses Bootswatch Paper Theme: http://bootswatch.com/paper/ -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="assets/css/the.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="page-header text-center">
+				<h1>Pic<small>ryption</small></h1>
+			</div>
+
+			<div class="page-header">
+				<h2>Encrypt the image <small>with your message</small></h2>
+			</div>
+			<P>
+				<div class ="center-block text-center uploadContent">
+					<FORM METHOD='post' enctype="multipart/form-data"  ACTION='go.php'>
+						<div class= "text-center center-block col-sm-6">
+						<p>Please upload an image that you would like to hide a secret message inside. Then type your message into the text field below</p>
+							<input id="uploadFileOne" placeholder="Choose Image" disabled="disabled" />
+							<div class="fileUpload btn btn-primary">
+								<span>Upload Image</span>
+								<INPUT TYPE='file' class="upload" id="uploadBtnOne" NAME='pdffile'/>
+							</div>
+							<br><br>
+						</div>
+
+						<div class= "text-center center-block col-sm-6">
+						<p>Please paste the message you want to encode in the image below. </p>
+							<textarea cols="40" rows="5" name="secretMessage">secret message</textarea>
+							<br><br>
+						</div>
+
+					</FORM>
+				</P>
+			</div>
+		</div>
+	</P>
+</div>
+</div>
+
+<div class="wrapper">
+	<div class="container">
+		<div class="page-header">
+			<h2>Read Image <small>with encypted message</small></h2>
+		</div>
+		<FORM METHOD='post' enctype="multipart/form-data"  ACTION='go.php'>
+			<div class= "text-center center-block col-sm-6">
+				<p>lease upload an image that you would like to decode. The message will open in a new tab of your browser.</p>
+				<input id="uploadFileTwo" placeholder="Choose Image" disabled="disabled" />
+				<div class="fileUpload btn btn-primary">
+					<span>Upload Image</span>
+					<INPUT TYPE='file' class="upload" id="uploadBtnTwo" NAME='pdffile'/>
+				</div>
+				<br><br>
+			</div>
+		</FORM>
+	</P>
+	<br>
+</div>	
+</P>
+</div>
+</div>
+<footer class="text-center">
+	<div class="DMblock-line"></div>
+	<p>
+		Designed by William Johnson, Finn Banks, and <a href="http://www.dylanmodesitt.com">Dylan Modesitt</a>.
+	</p>
+</footer>	
+</body>
+
+
+<script>
+	document.getElementById("uploadBtnOne").onchange = function () {
+		document.getElementById("uploadFileOne").value = this.value.replace(/^.*\\/, "");
+	};
+
+	document.getElementById("uploadBtnTwo").onchange = function () {
+		document.getElementById("uploadFileTwo").value = this.value.replace(/^.*\\/, "");
+	};
+</script>
+
+</html>

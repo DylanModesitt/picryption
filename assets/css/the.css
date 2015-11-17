@@ -1,0 +1,110 @@
+/* CSS */
+
+
+
+/* Global */
+*:focus {
+    outline: 0;
+}
+body, html {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif !important;
+    background-color:white;
+}
+h1,h2,h3,h4,h5,h6 {
+	color:#2e6da4;
+}
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+	-webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+}
+#wrapper {
+	min-height:100%;
+}
+/* Custome File Upload CSS*/
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/* Elements */
+.title {
+	text-align:center;
+	padding-bottom:30px;
+}
+
+.uploadContent {
+	padding-bottom: 5%;
+}
+input {
+	margin: 5px;
+	min-width:100px;
+}
+textarea:focus, input:focus{
+    outline: 0;
+}
+.request a {
+	padding:8px;
+	border-radius:5px;
+	background-color:white;
+	color:#930123;
+	text-decoration:none;
+}
+.request a:hover {
+	background-color:#600117;
+	color:white;
+	text-decoration:none;
+	 -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+}
+button {
+	color:#ffffff;
+	background-color:#930123;
+	text-decoration:none;
+}
+button:hover {
+	color:#ffffff;
+	background-color:#600117;
+	text-decoration:none;
+	-webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+}
+
+.DMblock-line {
+	background: rgba(135, 135, 135, 0.5);
+	width: 100px;
+	height: 1px;
+	margin: 30px auto;
+}
+
+/* Footer */
+footer {
+	margin-top:50px;
+	width:100%;
+	height:80px;
+}
