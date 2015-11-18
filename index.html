@@ -39,13 +39,13 @@
 			</div>
 			<P>
 				<div class ="center-block text-center uploadContent">
-					<FORM METHOD='post' enctype="multipart/form-data"  ACTION='go.php'>
+					<FORM METHOD='post' enctype="multipart/form-data"  ACTION='./assets/php/encode.php'>
 						<div class= "text-center center-block col-sm-6">
 						<p>Please upload an image that you would like to hide a secret message inside. Then type your message into the text field below</p>
 							<input id="uploadFileOne" placeholder="Choose Image" disabled="disabled" />
 							<div class="fileUpload btn btn-primary">
 								<span>Upload Image</span>
-								<INPUT TYPE='file' class="upload" id="uploadBtnOne" NAME='pdffile'/>
+								<INPUT TYPE='file' class="upload" id="uploadBtnOne" name='imageUploaded'/>
 							</div>
 							<br><br>
 						</div>
@@ -55,7 +55,7 @@
 							<textarea cols="40" rows="5" name="secretMessage">secret message</textarea>
 							<br><br>
 						</div>
-
+						<input type="submit" value="Upload Image" name="submit">
 					</FORM>
 				</P>
 			</div>
@@ -69,16 +69,17 @@
 		<div class="page-header">
 			<h2>Read Image <small>with encypted message</small></h2>
 		</div>
-		<FORM METHOD='post' enctype="multipart/form-data"  ACTION='go.php'>
+		<FORM METHOD='post' enctype="multipart/form-data"  ACTION='/assets/php/decode.php'>
 			<div class= "text-center center-block col-sm-6">
 				<p>lease upload an image that you would like to decode. The message will open in a new tab of your browser.</p>
 				<input id="uploadFileTwo" placeholder="Choose Image" disabled="disabled" />
 				<div class="fileUpload btn btn-primary">
 					<span>Upload Image</span>
-					<INPUT TYPE='file' class="upload" id="uploadBtnTwo" NAME='pdffile'/>
+					<INPUT TYPE='file' class="upload" id="uploadBtnTwo" NAME='imageUploaded'/>
 				</div>
 				<br><br>
 			</div>
+			<input type="submit" value="Upload Image" name="submit">
 		</FORM>
 	</P>
 	<br>
