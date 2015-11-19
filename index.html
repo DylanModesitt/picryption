@@ -33,15 +33,18 @@
 			<div class="page-header text-center">
 				<h1>Pic<small>ryption</small></h1>
 			</div>
+			<div>
+				<p class="big"> Picryption is a way to encode a message inside an image. You can choose an image file and write out a secret message. Encrypting the image will give you back a new image, identical to the one you gave, but now encoded with your message. You can also decode any image that has been encoded using Picryption by uploading it and decrypting it. Thank you for using Picrytpion! </p>
+			</div>
 
 			<div class="page-header">
-				<h2>Encrypt the image <small>with your message</small></h2>
+				<h2>Encrypt image <small>with your message</small></h2>
 			</div>
 			<P>
 				<div class ="center-block text-center uploadContent">
-					<FORM METHOD='post' enctype="multipart/form-data"  ACTION='./assets/php/encode.php'>
+					<FORM METHOD='post' enctype="multipart/form-data"  class="form-style-1" ACTION='./assets/php/encode.php'>
 						<div class= "text-center center-block col-sm-6">
-						<p>Please upload an image that you would like to hide a secret message inside. Then type your message into the text field below</p>
+							<p>Please upload an image that you would like to hide a secret message inside. Then type your message into the text field</p>
 							<input id="uploadFileOne" placeholder="Choose Image" disabled="disabled" />
 							<div class="fileUpload btn btn-primary">
 								<span>Upload Image</span>
@@ -51,11 +54,11 @@
 						</div>
 
 						<div class= "text-center center-block col-sm-6">
-						<p>Please paste the message you want to encode in the image below. </p>
-							<textarea cols="40" rows="5" name="secretMessage">secret message</textarea>
+							<p>Please paste the message you want to encode in the image below. </p>
+							<textarea cols="40" rows="5" name="secretMessage">Your secret message</textarea>
 							<br><br>
 						</div>
-						<input type="submit" value="Upload Image" name="submit">
+						<input type="submit" value="Encrypt Image" class="btn btn-danger" name="submit">
 					</FORM>
 				</P>
 			</div>
@@ -71,7 +74,7 @@
 		</div>
 		<FORM METHOD='post' enctype="multipart/form-data"  ACTION='/assets/php/decode.php'>
 			<div class= "text-center center-block col-sm-6">
-				<p>lease upload an image that you would like to decode. The message will open in a new tab of your browser.</p>
+				<p>Upload an image that has had a message encoded in it by Picryption. The message will open in a new page.</p>
 				<input id="uploadFileTwo" placeholder="Choose Image" disabled="disabled" />
 				<div class="fileUpload btn btn-primary">
 					<span>Upload Image</span>
@@ -79,7 +82,9 @@
 				</div>
 				<br><br>
 			</div>
-			<input type="submit" value="Upload Image" name="submit">
+			<div class= "text-center center-block col-sm-6">
+				<input type="submit" value="Decrypt Image" class="btn btn-danger" name="submit">
+			</div>
 		</FORM>
 	</P>
 	<br>
@@ -89,9 +94,12 @@
 </div>
 <footer class="text-center">
 	<div class="DMblock-line"></div>
-	<p>
-		Designed by William Johnson, Finn Banks, and <a href="http://www.dylanmodesitt.com">Dylan Modesitt</a>.
-	</p>
+	<p> Develoed and Designed by <a href="http://www.dylanmodesitt.com">Dylan Modesitt</a>, William Johnson, and Finn Banks. </p>
+	<br>
+	<br>
+	<div class="text-center">
+		<h1>Q.E.D.</h1>
+	</div>
 </footer>	
 </body>
 
