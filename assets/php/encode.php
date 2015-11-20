@@ -1,7 +1,7 @@
 <?php
 // Upload image to ../uploads/(file) so it can be encoded with a message
 $target_dir="../uploads/";
-$target_img = $target_dir.$_FILES["imageUploaded"]["name"] ;
+$target_img = $target_dir.$_FILES["imageUploaded"]["name"];
 $img_result = move_uploaded_file($_FILES["imageUploaded"]["tmp_name"], $target_img);
 $givenMessage = $_POST["secretMessage"];
 
@@ -152,7 +152,7 @@ function binaryToMessage($binary) {
 
 $im = encodeImageWithMessage($givenMessage, $target_img);
 // Set the content type header - in this case image/jpeg
-header('Content-Disposition: Attachment;filename=image.png'); 
+header('Content-Disposition: attachment; filename='.$_FILES["imageUploaded"]["name"]);
 header('Content-type: image/png'); 
 //Output the image
 imagepng($im);
