@@ -1,4 +1,7 @@
 <?php
+// Modal.php holds a variety of functions used across multiple scripts in picryption.
+include 'model.php';
+
 // Upload image to ../uploads/(file) so it can be encoded with a message
 $target_dir="../uploads/";
 $target_img = $target_dir . "image.png";
@@ -15,11 +18,33 @@ function decodeImageWithMessage($image) {
 	$imageToModify = imagecreatefrompng($image);
 	list($width, $height) = getimagesize($image);
 	$binaryRecieved = "";
+	$shouldCheckForExpiery = FALSE;
+
+	// count the number of zeros to look for the stop codon of a message.
 	$zeroInARowCounter = 0;
 	for($y=0;$y<$height;$y++) {
 		for($x=0;$x<$width;$x++) {
+			// check for date expirey 
+			if (strcmp($binaryRecieved,"00000001")==0) {
+				$binaryRecieved = "";
+				$shouldCheckForExpiery = TRUE;
+			}
+
+			if($shouldCheckForExpiery) {
+				if(strlen($binaryRecieved) == 48) {
+					$shouldCheckForExpiery = false;
+					$validByDate = binaryToMessage($binaryRecieved);
+						if (date("m.d.y") > $validByDate) {
+				        	echo "matched";
+							return "This image's message self destructed.";
+						} 
+				}
+			}
+
+
 			$colors = imagecolorat($imageToModify, $x, $y);
-			$r = ($colors >> 16) & 0xFF;
+			 $r = ($colors >> 16) & 0xFF;
+			// get bit from red value
 			if($r % 2 == 0) {
 				$binaryRecieved=$binaryRecieved."0";
 				$zeroInARowCounter++;
@@ -27,6 +52,7 @@ function decodeImageWithMessage($image) {
 				$binaryRecieved=$binaryRecieved."1";
 				$zeroInARowCounter = 0;
 			}
+
 			// Break out of first loop given the 00000000 (Stop message)
 			if ($zeroInARowCounter >= 8) {
                 break;
@@ -38,36 +64,6 @@ function decodeImageWithMessage($image) {
 		}
 	}
 	return binaryToMessage($binaryRecieved);
-}
-
-
-// Turn string into a string of bits
-function messageToBinary($message) {
-	// Get length of message
-    $len = strlen($message);
-    // Variable for the binary to be added to
-    $binaryRecieved = '';
-    // Loop through the string
-    for ($i = 0; $i < $len; $i++) {
-    	// Ord will give the character code of the given character and then sprintf() converts that to a binary number
-        $binaryRecieved .= sprintf("%08b", ord($message[$i]));
-    }
-    return $binaryRecieved;
-}
-// Turn string of bits into its text equivalent
-function binaryToMessage($binary) {
-	// Get length of message
-    $len = strlen($binary);
-    // Variable for the binary to be added to
-    $messageDecoded = '';
-    // Extract 8-bit segments of the string
-    for ($i = 0; $i < $len; $i += 8) {
-    	// get the substring segment for current iteration
-        $n = substr($binary, $i, 8);
-        // Turn the binary into a decimal back to a character and add it
-        $messageDecoded .= chr(bindec($n));
-    }
-    return $messageDecoded;
 }
 
 echo decodeImageWithMessage($target_img);

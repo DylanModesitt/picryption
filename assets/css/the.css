@@ -12,7 +12,7 @@ body, html {
     background-color:white;
 }
 h1,h2,h3,h4,h5,h6 {
-	color:#2e6da4;
+	 color:#337ab7;
 }
 body {
 	margin:0;
@@ -22,13 +22,17 @@ body {
 a {
 	text-decoration:none;
 }
+#navbar-brand {
+    color:#337ab7;
+}
+
 a:hover {
 	text-decoration:none;
 	-webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
 }
-p.big {
+p {
     line-height: 150%;
 }
 #wrapper {
@@ -53,8 +57,6 @@ p.big {
     filter: alpha(opacity=0);
 }
 
-
-<style type="text/css">
 .form-style-6{
     font: 95% Arial, Helvetica, sans-serif;
     max-width: 400px;
@@ -115,7 +117,6 @@ p.big {
 	padding-bottom: 5%;
 }
 input {
-	margin: 5px;
 	min-width:100px;
 }
 textarea:focus, input:focus{
@@ -136,6 +137,7 @@ textarea:focus, input:focus{
         -moz-transition: all .3s;
         transition: all .3s;
 }
+
 button {
 	color:#ffffff;
 	background-color:#930123;
@@ -160,6 +162,7 @@ button:hover {
 /* Footer */
 footer {
 	margin-top:50px;
+    margin-bottom:50px;
 	width:100%;
 	height:80px;
 }
