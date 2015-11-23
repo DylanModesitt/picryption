@@ -7,7 +7,7 @@
 	<div class="wrapper">
 		<div class="container">
 			<div class="page-header">
-				<h2>Picryption<small> message in image</small></h2>
+				<h1>Picryption<small> message in image</small></h1>
 			</div>
 			<div>
 				<p class="big"> Picryption is a way to hide content inside an image. You can choose an image file and write out a secret message. Encrypting the image will give you back a new image, identical to the one you gave, but now encoded with your message. You can also decode any image that has been encoded using Picryption by uploading it and decrypting it. Thank you for using Picrytpion! </p>
@@ -18,7 +18,7 @@
 			</div>
 			<P>
 				<div class ="center-block text-center uploadContent">
-					<FORM METHOD='post' enctype="multipart/form-data"  class="form-style-1" ACTION='./assets/php/encode.php'>
+					<FORM METHOD='post' enctype="multipart/form-data"  class="form-style-1" ACTION='./assets/php/encodeMessage.php'>
 						<div class= "text-center center-block col-sm-6">
 							<p class="big">Please upload an image that you would like to hide a secret message inside. Then type your message into the text field</p>
 							<input id="uploadFileOne" placeholder="Choose Image" disabled="disabled" />
@@ -31,7 +31,7 @@
 
 						<div class= "text-center center-block col-sm-6">
 							<p class="big">Please paste the message you want to encode in the image below. </p>
-							<textarea cols="40" rows="5" class="secretMessage" name="secretMessage" placeholder="Your secret message"></textarea>
+							<textarea cols="40" rows="5" id="secretMessage" class="secretMessage" name="secretMessage" placeholder="Your secret message"></textarea>
 							<p>
 								<span>Characters remaining: <span id="count" title="1000"></span></span>
 							</p>
@@ -44,6 +44,7 @@
 								<input type="checkbox" name="self-destruct" > Message self-destructs after date:
 								<input type="text" name="days" placeholder="Days till destruction">
 							</label>
+							<!--
 							<br>
 							<br>
 							<label>
@@ -55,6 +56,9 @@
 							<label>
 								<input type="checkbox"> Message supports HTML
 							</label>
+							-->
+							<br>
+							<br>
 						</div>
 
 						<input type="submit" value="Encrypt Image" class="btn btn-danger" name="submit">
@@ -71,7 +75,7 @@
 		<div class="page-header">
 			<h2>Read Image <small>with encypted message</small></h2>
 		</div>
-		<FORM METHOD='post' enctype="multipart/form-data"  ACTION='/assets/php/decode.php'>
+		<FORM METHOD='post' enctype="multipart/form-data"  ACTION='/assets/php/decodeMessage.php'>
 			<div class= "text-center center-block col-sm-6">
 				<p class="big">Upload an image that has had a message encoded in it by Picryption. The message will open in a new page.</p>
 				<input id="uploadFileTwo" placeholder="Choose Image" disabled="disabled" />

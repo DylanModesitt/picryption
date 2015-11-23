@@ -1,5 +1,5 @@
 <?php
-
+ini_set('max_execution_time', 0);
 // Modal.php holds a variety of functions used across multiple scripts in picryption.
 
 include 'model.php';
@@ -108,9 +108,14 @@ catch(Exception $e) {
 }
 
 
-// Set the content type header - in this case image/jpeg 
+// Set the content type header - in this case image/jpeg
+header('Content-Description: File Transfer');
+header("Content-Type: application/octet-stream");
 header('Content-Disposition: attachment; filename=' . $_FILES["imageUploaded"]["name"]);
-header('Content-type: image/png');
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+header('Pragma: public');
 
 // Output the image
 imagepng($im);

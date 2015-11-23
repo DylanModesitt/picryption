@@ -1,4 +1,5 @@
 <?php
+ini_set('max_execution_time', 0);
 // Modal.php holds a variety of functions used across multiple scripts in picryption.
 include 'model.php';
 
@@ -68,5 +69,6 @@ function decodeImageWithMessage($image) {
 
 echo decodeImageWithMessage($target_img);
 unlink($target_img);
+
 
 ?>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Insert header -->
-<?php include 'assets/includes/header.php';  includeHeader("Picryption"); ?>
+<?php include 'assets/includes/header.php';  includeHeader("Picryption - Info"); ?>
 
 <body>
 <?php include 'assets/includes/nav.php'; ?>

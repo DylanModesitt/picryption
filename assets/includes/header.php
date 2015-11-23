@@ -10,7 +10,9 @@ function includeHeader($title) {
 
 				<!-- SEO -->
 				<meta name="author" content="Dylan Modesitt">
-				<meta name="keywords" content="dylanmodesitt, Dylan Modesitt, picryption">
+				<meta name="Description" content="Picryption allows the hiding of content (messages, images, files) inside images using steganography. Hide or "encrypt" anything in a photo or image using Picryption.">
+				<meta name="Keywords" content="picryption, steganography, picture encryption, message in picture, message in image, image encryption, encryption, obscure image, modify image, filter image, picryption tool, image modification, dylan modesitt, will johnson, finn banks, image encryption tool, way to encrypt images, way to decode image, steganography encoder, hide message, secret image.">
+
 				<title>'.$title.'</title>
 
 				<!-- Bootstrap Core CSS - Uses Bootswatch Paper Theme: http://bootswatch.com/paper/ -->
@@ -19,8 +21,27 @@ function includeHeader($title) {
 				<!-- Custom CSS -->
 				<link href="assets/css/the.css" rel="stylesheet">
 
+				<!-- Icons and Branding -->
+
+    			<link rel="shortcut icon" href="./assets/img/icon.png"> 
+    			<link rel="apple-touch-icon" href="./assets/img/icon.png">
+    			
+    			<script>
+				  (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+				  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				  })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+
+				  ga("create", "UA-70492626-1", "auto");
+				  ga("send", "pageview");
+
+				</script>
+
 			</head>';
 
 }
+
+
+
 
 ?>
