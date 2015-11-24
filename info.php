@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- Insert header -->
 <?php include 'assets/includes/header.php';  includeHeader("Picryption - Info"); ?>
-
 <body>
 <?php include 'assets/includes/nav.php'; ?>
 	<div class="wrapper">
@@ -25,7 +24,7 @@
 				<h2>Contact <small>information</small></h2>
 			</div>
 			<P>
-			Picritpion is developed and maintained by Dylan Modesitt, William Johnson, and Finn Banks. If you would like to work on the project or contact us for ideas or concerns, please do so in the form below. Thank you for using Picryption.
+			Picritpion is developed and maintained by Dylan Modesitt and William Johnson. If you would like to work on the project or contact us for ideas or concerns, please do so in the form below. Thank you for using Picryption.
 			</P>
 			<br>
 			<br>
