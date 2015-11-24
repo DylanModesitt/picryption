@@ -31,7 +31,7 @@ function binaryToMessage($binary) {
 }
 
 // universal creation of image wihtout regards to filetype. 
-function imagecreatefromfile( $filename ) {
+function imagecreatefromfile($filename ) {
     if (!file_exists($filename)) {
         throw new InvalidArgumentException('File "'.$filename.'" not found.');
     }
