@@ -1,5 +1,7 @@
+<?php include '../includes/headerForScript.php';  includeHeader("Picryption - Image Decryption"); ?>
+<body>
+<?php include '../includes/navForScript.php'; ?>
 <?php
-ini_set('max_execution_time', 0);
 // Modal.php holds a variety of functions used across multiple scripts in picryption.
 include 'model.php';
 
@@ -9,9 +11,13 @@ $target_img = $target_dir . "image.png";
 $img_result = move_uploaded_file($_FILES["imageUploaded"]["tmp_name"], $target_img);
 
 // Test for sucessful file upload
-if ($img_result == FALSE) { echo "<h4 class='col-xs-12'>Image was <B>NOT</B> uploaded to the picryption for processing.</h4>\n";
+if ($img_result == FALSE) { echo '<script type="text/javascript"> alert ("There was an error uploading your image. Please try again."); window.history.back()</script>';}
+
+try {
+  imagepng(imagecreatefromfile($target_img) , $target_img);
 }
-else { echo "<h4 class='col-xs-12'>Image was uploaded to picryption.</h4>\n";
+catch(Exception $e) {
+  giveErrorPopup($e);
 }
 
 // Given an image, get the hidden message encoded using encode.php 
@@ -36,7 +42,6 @@ function decodeImageWithMessage($image) {
 					$shouldCheckForExpiery = false;
 					$validByDate = binaryToMessage($binaryRecieved);
 						if (date("m.d.y") > $validByDate) {
-				        	echo "matched";
 							return "This image's message self destructed.";
 						} 
 				}
@@ -66,8 +71,18 @@ function decodeImageWithMessage($image) {
 	}
 	return binaryToMessage($binaryRecieved);
 }
-
-echo decodeImageWithMessage($target_img);
+echo '<div class="wrapper">
+		<div class="container">
+			<div class="page-header">
+				<h2>Picryption <small>message decoded</small></h2>
+			</div>';
+if(strlen(decodeImageWithMessage($target_img)) > 0) {
+	echo '<h3><small>Showing message decoded in image '.$_FILES["imageUploaded"]["name"].':</small></h3>';
+	echo '<br><br>';
+	echo decodeImageWithMessage($target_img);
+} else {
+	echo '<h3><small>There was no Picryption message in image '.$_FILES["imageUploaded"]["name"].':</small></h3>';
+}
 unlink($target_img);
 
 

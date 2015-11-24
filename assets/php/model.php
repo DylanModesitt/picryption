@@ -38,10 +38,13 @@ function imagecreatefromfile( $filename ) {
     switch ( strtolower( pathinfo( $filename, PATHINFO_EXTENSION ))) {
         case 'jpeg':
         case 'jpg':
+        case 'JPEG':
+        case 'JPG':
             return imagecreatefromjpeg($filename);
             break;
 
         case 'png':
+        case 'PNG':
             return imagecreatefrompng($filename);
             break;
 
@@ -61,12 +64,16 @@ function encodeBitInColor($c, $currentBit) {
   if($c % 2 == 0 && $currentBit == '1') {
     if($c >= 255) {
       $newC = $c-1;
+    } elseif ($c == 0) {
+      $newC = 3;
     } else {
       $newC = $c+1;
     }
   } elseif ($c % 2 == 1 && $currentBit == '0') {
     if($c >= 255) {
       $newC = $c-1;
+    } elseif ($c == 0) {
+      $newC = 2;
     } else {
       $newC = $c+1;
     }
@@ -76,6 +83,26 @@ function encodeBitInColor($c, $currentBit) {
 
 function giveErrorPopup($e) {
   echo '<script type="text/javascript"> alert ("There was an error: ' . $e->getMessage() . '"); window.history.back()</script>';
+}
+
+if(!function_exists('imagepalettetotruecolor'))
+{
+    function imagepalettetotruecolor(&$src)
+    {
+        if(imageistruecolor($src))
+        {
+            return(true);
+        }
+
+        $dst = imagecreatetruecolor(imagesx($src), imagesy($src));
+
+        imagecopy($dst, $src, 0, 0, 0, 0, imagesx($src), imagesy($src));
+        imagedestroy($src);
+
+        $src = $dst;
+
+        return(true);
+    }
 }
 
 

@@ -25,6 +25,13 @@ $("#uploadBtnOne").change(function (e) {
 document.getElementById("uploadBtnTwo").onchange = function () {
 	document.getElementById("uploadFileTwo").value = this.value.replace(/^.*\\/, "");
 };
+document.getElementById("uploadBtnThree").onchange = function () {
+    document.getElementById("uploadFileThree").value = this.value.replace(/^.*\\/, "");
+};
+document.getElementById("uploadBtnFour").onchange = function () {
+    document.getElementById("uploadFileFour").value = this.value.replace(/^.*\\/, "");
+};
+
 
 
 $(".secretMessage").keyup(function(){

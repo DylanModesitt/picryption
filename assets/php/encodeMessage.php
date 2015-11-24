@@ -23,7 +23,9 @@ catch(Exception $e) {
 
 function encodeImageWithMessage($message, $image)
 {
+
   $imageToModify = imagecreatefrompng($image);
+  imagepalettetotruecolor($imageToModify);
   list($width, $height) = getimagesize($image);
   $binaryGiven = messageToBinary($message);
   $x = 0;
@@ -68,11 +70,11 @@ function encodeImageWithMessage($message, $image)
 
         $currentIndexOfBit = $i;
         $currentBit = $binaryGiven{$currentIndexOfBit};
-
         $newR = encodeBitInColor($r,$currentBit);
+        
         $newColor = imagecolorallocate($imageToModify, $newR, $g, $b);
-        imagesetpixel($imageToModify, $x, $y, $newColor);
 
+        imagesetpixel($imageToModify, $x, $y, $newColor);
     }
 
     // Make a stop codon of 00000000

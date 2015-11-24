@@ -1,5 +1,4 @@
 <?php
-ini_set('max_execution_time', 0);
 // Model.php holds a variety of functions used across multiple scripts in picryption.
 include 'model.php';
 // Upload image to ../uploads/(file) so it can be encoded with a message
@@ -16,26 +15,55 @@ catch(Exception $e) {
   giveErrorPopup($e);
 }
 
+function generateSeeds()
+{
+  $arr = array();
+  for ($i=0; $i<255; $i++){
+    mt_srand($i);
+    $result = mt_rand(0,255);
+    array_push($arr, $result);
+  }
+  return $arr;
+}
+
+
 function retrieveImage($image)
 {
 
   $imageToRetrieve = imagecreatefrompng($image);
+  imagepalettetotruecolor($imageToRetrieve);
   list($width, $height) = getimagesize($image);
   $x = 0;
   $y = 0;
 
-  // manipulate r value
-  for($y=0;$y<$height;$y++) {
-    for($x=0;$x<$width;$x++) {
-      $colors = imagecolorat($imageToRetrieve, $x, $y);
-      $r = ($colors >> 16) & 0xFF;
+    // find seeds and reset rgb values to original
+    $seeds = generateSeeds();
 
-      $newColor = imagecolorallocate($imageToRetrieve, $r*10, 0, 0);
-      imagesetpixel($imageToRetrieve, $x, $y, $newColor);
+    for($y=0;$y<$height;$y++) {
+          for($x=0;$x<$width;$x++) {
+
+            // get rgb values at pixel x,y
+            $colors = imagecolorat($imageToRetrieve, $x, $y);
+            $r = ($colors >> 16) & 0xFF;
+            $g = ($colors >> 8) & 0xFF;
+            $b = $colors & 0xFF;
+
+            $rseed = array_search($r, $seeds);
+            $bseed = array_search($b, $seeds);
+            $gseed = array_search($g, $seeds);
+
+            $newGreen = 3*$gseed;
+            $newBlue = 3*$bseed;
+            $newRed = 3*$rseed;
+
+
+            //apply new rgb values to image
+            $newColor = imagecolorallocate($imageToRetrieve, $newRed, $newGreen, $newBlue);
+            imagesetpixel($imageToRetrieve, $x, $y, $newColor);
+          }
+      }
+    return $imageToRetrieve;
     }
-  }
-  return $imageToRetrieve;
-}
 
 
 try {

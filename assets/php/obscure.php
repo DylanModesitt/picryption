@@ -21,17 +21,46 @@ function obscureImage($image)
 {
 	
   $imageToObscure = imagecreatefrompng($image);
+  imagepalettetotruecolor($imageToObscure);
   list($width, $height) = getimagesize($image);
+  
   $x = 0;
   $y = 0;
-
-  // manipulate r value
+  /*  old manipulation
+  
   for($y=0;$y<$height;$y++) {
     for($x=0;$x<$width;$x++) {
       $colors = imagecolorat($imageToObscure, $x, $y);
       $r = ($colors >> 16) & 0xFF;
 
       $newColor = imagecolorallocate($imageToObscure, $r/10,rand(0,255), rand(0,255));
+      imagesetpixel($imageToObscure, $x, $y, $newColor);
+    }
+  }
+  */
+
+  // new seeded manipulation
+
+  for($y=0;$y<$height;$y++) {
+    for($x=0;$x<$width;$x++) {
+      $colors = imagecolorat($imageToObscure, $x, $y);
+      $r = ($colors >> 16) & 0xFF;
+      $g = ($colors >> 8) & 0xFF;
+      $b = $colors & 0xFF;
+
+      $rseed = $r/3;
+      mt_srand($rseed);
+      $newRed = mt_rand(0,255);
+
+      $bseed = $b/3;
+      mt_srand($bseed);
+      $newBlue = mt_rand(0,255);
+
+      $gseed = $g/3;
+      mt_srand($gseed);
+      $newGreen = mt_rand(0,255);
+
+      $newColor = imagecolorallocate($imageToObscure, $newRed, $newGreen, $newBlue);
       imagesetpixel($imageToObscure, $x, $y, $newColor);
     }
   }
