@@ -74,7 +74,7 @@ function decodeImageWithMessage($image) {
 echo '<div class="wrapper">
 		<div class="container">
 			<div class="page-header">
-				<h2>Picryption <small>message decoded</small></h2>
+				<h1 class="red">Picryption <small>steganography message decoded</small></h1>
 			</div>';
 if(strlen(decodeImageWithMessage($target_img)) > 0) {
 	echo '<h3><small>Showing message decoded in image '.$_FILES["imageUploaded"]["name"].':</small></h3>';

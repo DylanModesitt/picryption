@@ -7,7 +7,7 @@ $searchString = $_POST["search"];
 echo '<div class="wrapper">
 		<div class="container">
 			<div class="page-header">
-				<h2>Picryption <small>search</small></h2>
+				<h1 class="red">Picryption <small>search</small></h2>
 			</div>';
 
 

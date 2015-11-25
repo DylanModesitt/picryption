@@ -22,6 +22,12 @@ $("#uploadBtnOne").change(function (e) {
             }
 });
 
+$(".secretMessage").keyup(function(){
+    if(size) {
+        $("#count").text(size - $(this).val().length);
+    }
+});
+
 document.getElementById("uploadBtnTwo").onchange = function () {
 	document.getElementById("uploadFileTwo").value = this.value.replace(/^.*\\/, "");
 };
@@ -34,9 +40,5 @@ document.getElementById("uploadBtnFour").onchange = function () {
 
 
 
-$(".secretMessage").keyup(function(){
-	if(size) {
-     	$("#count").text(size - $(this).val().length);
-	}
-});
+
 

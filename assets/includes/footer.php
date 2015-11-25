@@ -1,5 +1,7 @@
 <footer class="text-center">
+<br>
 	<div class="DMblock-line"></div>
+	<br>
 	<div class="col-xs-12">
 		<p> Developed and Designed by <a href="http://www.dylanmodesitt.com">Dylan Modesitt</a> and William Johnson</p>
 	</div>
@@ -7,7 +9,7 @@
 	<br>
 	<!-- Hit 'em with a QED -->
 	<div class="text-center">
-		<h1>Q.E.D.</h1>
+		<p>Q.E.D.</p>
 	</div>
 </footer>
 

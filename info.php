@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <!-- Insert header -->
 <?php include 'assets/includes/header.php';  includeHeader("Picryption - Info"); ?>
+
 <body>
 <?php include 'assets/includes/nav.php'; ?>
 	<div class="wrapper">
 		<div class="container">
 			<div class="page-header">
-				<h2>Picryption<small> information</small></h2>
+				<h1 class="red">Picryption<small> information</small></h2>
 			</div>
 			<div>
 				<p class="big"> Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video. Picryption is a Stenography service that allows the hiding of content inside images through several methods. </p>
@@ -24,12 +25,12 @@
 				<h2>Contact <small>information</small></h2>
 			</div>
 			<P>
-			Picritpion is developed and maintained by Dylan Modesitt and William Johnson. If you would like to work on the project or contact us for ideas or concerns, please do so in the form below. Thank you for using Picryption.
+			Picritpion is developed and maintained by Dylan Modesitt, William Johnson, and Finn Banks. If you would like to work on the project or contact us for ideas or concerns, please do so in the form below. Thank you for using Picryption.
 			</P>
 			<br>
 			<br>
 			 <div class="row">
-                <div class="col-xs-10 col-md-8 ">
+                <div class="col-xs-12 col-md-8 col-md-offset-2">
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row control-group">
                             <div class="col-xs-12">
