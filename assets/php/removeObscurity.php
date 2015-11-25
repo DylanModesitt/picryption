@@ -18,7 +18,7 @@ catch(Exception $e) {
 function generateSeeds()
 {
   $arr = array();
-  for ($i=0; $i<255; $i++){
+  for ($i=0; $i<27; $i++){
     mt_srand($i);
     $result = mt_rand(0,255);
     array_push($arr, $result);
@@ -52,9 +52,9 @@ function retrieveImage($image)
             $bseed = array_search($b, $seeds);
             $gseed = array_search($g, $seeds);
 
-            $newGreen = 3*$gseed;
-            $newBlue = 3*$bseed;
-            $newRed = 3*$rseed;
+            $newGreen = 6*$gseed;
+            $newBlue = 6*$bseed;
+            $newRed = 6*$rseed;
 
 
             //apply new rgb values to image

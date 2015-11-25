@@ -31,7 +31,7 @@ function binaryToMessage($binary) {
 }
 
 // universal creation of image wihtout regards to filetype. 
-function imagecreatefromfile( $filename ) {
+function imagecreatefromfile($filename) {
     if (!file_exists($filename)) {
         throw new InvalidArgumentException('File "'.$filename.'" not found.');
     }
@@ -59,6 +59,25 @@ function imagecreatefromfile( $filename ) {
     }
 }
 
+function readExifData($filename) {
+  $image = imagecreatefromstring(file_get_contents($filename));
+  $exif = exif_read_data($filename);
+  if(!empty($exif['Orientation'])) {
+      switch($exif['Orientation']) {
+          case 8:
+              $image = imagerotate($image,90,0);
+              break;
+          case 3:
+              $image = imagerotate($image,180,0);
+              break;
+          case 6:
+              $image = imagerotate($image,-90,0);
+              break;
+      }
+      imagepng($image,$filename,0);
+}
+
+}
 function encodeBitInColor($c, $currentBit) {
   $newC = $c;
   if($c % 2 == 0 && $currentBit == '1') {

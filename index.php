@@ -33,24 +33,11 @@
 							<h3 class="text-left"> Options: </h3>
 							<br>
 							<input type="checkbox" name="self-destruct" > Message self-destructs after date:&nbsp;&nbsp;&nbsp;
-							<input type="text" name="days" placeholder="Days till destruction">
-							
-								<!--
+							<input type="text" name="days" class="field" placeholder="Days till destruction">
 								<br>
 								<br>
-								<label>
-									<input type="checkbox" name="pass-protect" > Password Protect Image:
-									<input type="text" name="password" placeholder="password">
-								</label>
-								<br>
-								<br>
-								<label>
-									<input type="checkbox"> Message supports HTML
-								</label>
-							-->
-							<br>
-							<br>
-							<br><br>
+								<input type="checkbox" name="HTML-support" checked > Message Supports HTML&nbsp;&nbsp;&nbsp;
+							<br><br><br><br>
 						</div>
 
 						<div class= "text-left center-block col-sm-6">

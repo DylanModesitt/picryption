@@ -11,10 +11,14 @@ $target_img = $target_dir . $_FILES["imageUploaded"]["name"];
 $img_result = move_uploaded_file($_FILES["imageUploaded"]["tmp_name"], $target_img);
 $givenMessage = $_POST["secretMessage"];
 
-// if ($img_result == FALSE) {  } else { }
+if ($img_result == FALSE) { 
+  echo '<script type="text/javascript"> alert ("The image could not be uploaded. Please try again later."); window.history.back()</script>';
+ } 
 // Check if image is valid and overwrite it as a PNG
 
 try {
+  // Read header in image to check for modifcation that needs to be done
+  readExifData($target_img);
   imagepng(imagecreatefromfile($target_img) , $target_img);
 }
 catch(Exception $e) {
@@ -27,6 +31,9 @@ function encodeImageWithMessage($message, $image)
   $imageToModify = imagecreatefrompng($image);
   imagepalettetotruecolor($imageToModify);
   list($width, $height) = getimagesize($image);
+  if(!isset($_POST['HTML-support'])) {
+    $message = trim(preg_replace('/ +/', ' ', preg_replace('/[^A-Za-z0-9 ]/', ' ', urldecode(html_entity_decode(strip_tags($message))))));
+  }
   $binaryGiven = messageToBinary($message);
   $x = 0;
   $y = 0;

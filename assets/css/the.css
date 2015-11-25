@@ -10,12 +10,12 @@ body, html {
     margin-top:20px;
     font-family: "helvetica neue", helvetica, arial, sans-serif;
 }
-
 a {
+    color:#d9534f;
     text-decoration:none;
 }
-
 a:hover {
+    color:#9f2623;
     text-decoration:none;
     -webkit-transition: all .3s;
         -moz-transition: all .3s;
@@ -32,6 +32,13 @@ textarea {
       -moz-border-radius:5px;
       -webkit-border-radius:5px;
    }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
 /* Divisions */
 
 
@@ -56,6 +63,10 @@ textarea {
      background:#2A2C39;
      padding-bottom:30px;
 }
+.dark input.field{
+     color:#2A2C39;
+
+}
 .dark small {
      color:#ceced3;
 }
@@ -67,7 +78,6 @@ textarea {
 
 
 /* Navigation */
-
 #nav, 
 #nav a,
 #nav .dropdown-menu {
@@ -157,19 +167,10 @@ textarea {
     
 }
 
-.form-style-1 textarea:focus,
-.form-style-1 select:focus
-{
-    box-shadow: 0 0 5px #337ab7;
-    padding: 3%;
-    border: 1px solid #337ab7;
-}
 
 
 
 /* Elements */
-
-
 
 .title {
 	text-align:center;
@@ -179,9 +180,7 @@ textarea {
 .uploadContent {
 	padding-bottom: 5%;
 }
-input {
-	min-width:100px;
-}
+
 textarea:focus, input:focus{
     outline: 0;
 }
@@ -202,9 +201,9 @@ textarea:focus, input:focus{
 }
 
 button {
+    background-color:#930123;
+    text-decoration:none;
 	color:#ffffff;
-	background-color:#930123;
-	text-decoration:none;
 }
 button:hover {
 	color:#ffffff;
