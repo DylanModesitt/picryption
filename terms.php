@@ -30,7 +30,7 @@ The use of this website is subject to the following terms of use:
 •   Your use of this website and any dispute arising out of such use of the website is subject to the laws of The United States of America.
 <br><br>
 
-If you have questions for us regarding the legality of Picryption, please contact us at <a href="mailto:legal@delcassafiedandratified.com">legal@declassafiedandratified.com</a>
+If you have questions for us regarding the legality of Picryption, please contact us at <a href="mailto:legal@picryption.com">legal@picryption.com</a>
 <br><br>
 If you have questions about the legality for you to use Picryption, please contact your local government.
 <br><br>
