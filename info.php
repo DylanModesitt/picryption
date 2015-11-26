@@ -12,7 +12,7 @@
 			<div>
 				<p class="big"> Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video. Picryption is a Stenography service that allows the hiding of content inside images through several methods. </p>
 
-				<P> The advantage of steganography over cryptography alone is that the intended secret message does not attract attention to itself as an object of scrutiny. Plainly visible encrypted messages—no matter how unbreakable—arouse interest, and may in themselves be incriminating in countries where encryption <https://en.wikipedia.org/wiki/Encryption> is illegal.[2] <https://en.wikipedia.org/wiki/Steganography#cite_note-2> Thus, whereas cryptography is the practice of protecting the contents of a message alone, steganography is concerned with concealing the fact that a secret message is being sent, as well as concealing the contents of the message.</p>
+				<P> The advantage of steganography over cryptography alone is that the intended secret message does not attract attention to itself as an object of scrutiny. Plainly visible encrypted messages—no matter how unbreakable—arouse interest, and may in themselves be incriminating in countries where encryption is illegal. Thus, whereas cryptography is the practice of protecting the contents of a message alone, steganography is concerned with concealing the fact that a secret message is being sent, as well as concealing the contents of the message.</p>
 			</div>
 
 			<div class="page-header">
