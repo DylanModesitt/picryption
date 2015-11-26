@@ -33,7 +33,7 @@ function binaryToMessage($binary) {
 // universal creation of image wihtout regards to filetype. 
 function imagecreatefromfile($filename) {
     if (!file_exists($filename)) {
-        throw new InvalidArgumentException('File "'.$filename.'" not found.');
+        throw new InvalidArgumentException('File "'.$filename.'" could not be uploaded.');
     }
     switch ( strtolower( pathinfo( $filename, PATHINFO_EXTENSION ))) {
         case 'jpeg':
@@ -60,24 +60,28 @@ function imagecreatefromfile($filename) {
 }
 
 function readExifData($filename) {
-  $image = imagecreatefromstring(file_get_contents($filename));
-  $exif = exif_read_data($filename);
-  if(!empty($exif['Orientation'])) {
-      switch($exif['Orientation']) {
-          case 8:
-              $image = imagerotate($image,90,0);
-              break;
-          case 3:
-              $image = imagerotate($image,180,0);
-              break;
-          case 6:
-              $image = imagerotate($image,-90,0);
-              break;
+  try {
+    $image = imagecreatefromstring(file_get_contents($filename));
+    $exif = exif_read_data($filename);
+      if(!empty($exif['Orientation'])) {
+          switch($exif['Orientation']) {
+              case 8:
+                  $image = imagerotate($image,90,0);
+                  break;
+              case 3:
+                  $image = imagerotate($image,180,0);
+                  break;
+              case 6:
+                  $image = imagerotate($image,-90,0);
+                  break;
+          }
+          imagepng($image,$filename,0);
+        }
+      } catch (Exception $e) {
+         throw new $e;
       }
-      imagepng($image,$filename,0);
 }
 
-}
 function encodeBitInColor($c, $currentBit) {
   $newC = $c;
   if($c % 2 == 0 && $currentBit == '1') {
@@ -102,6 +106,10 @@ function encodeBitInColor($c, $currentBit) {
 
 function giveErrorPopup($e) {
   echo '<script type="text/javascript"> alert ("There was an error: ' . $e->getMessage() . '"); window.history.back()</script>';
+}
+
+function giveUploadErrorPopup() {
+  echo '<script type="text/javascript"> alert ("Your image could not be uplaoded to Picryption. Please try again later."); window.history.back()</script>';
 }
 
 if(!function_exists('imagepalettetotruecolor'))

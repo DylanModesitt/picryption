@@ -11,7 +11,7 @@ $target_img = $target_dir . "image.png";
 $img_result = move_uploaded_file($_FILES["imageUploaded"]["tmp_name"], $target_img);
 
 // Test for sucessful file upload
-if ($img_result == FALSE) { echo '<script type="text/javascript"> alert ("There was an error uploading your image. Please try again."); window.history.back()</script>';}
+if ($img_result == FALSE) { giveUploadErrorPopup(); }
 
 try {
   imagepng(imagecreatefromfile($target_img) , $target_img);

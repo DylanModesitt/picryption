@@ -57,24 +57,26 @@ function obscureImage($image)
 
 try {
   $im = obscureImage($target_img);
+    // Set the content type header - in this case image/jpeg 
+  header('Content-Description: File Transfer');
+  header("Content-Type: application/octet-stream");
+  header('Content-Disposition: attachment; filename=' . $_FILES["imageUploaded"]["name"]);
+  header('Content-Transfer-Encoding: binary');
+  header('Expires: 0');
+  header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+  header('Pragma: public');
+
+  // Output the image
+  imagepng($im);
+
+  imagedestroy($im);
 }
 catch(Exception $e) {
   giveErrorPopup($e);
 }
 
-// Set the content type header - in this case image/jpeg 
-header('Content-Description: File Transfer');
-header("Content-Type: application/octet-stream");
-header('Content-Disposition: attachment; filename=' . $_FILES["imageUploaded"]["name"]);
-header('Content-Transfer-Encoding: binary');
-header('Expires: 0');
-header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-header('Pragma: public');
-
-// Output the image
-imagepng($im);
 
 // Free up memory
 unlink($target_img);
-imagedestroy($im);
+
 ?>

@@ -11,9 +11,7 @@ $target_img = $target_dir . $_FILES["imageUploaded"]["name"];
 $img_result = move_uploaded_file($_FILES["imageUploaded"]["tmp_name"], $target_img);
 $givenMessage = $_POST["secretMessage"];
 
-if ($img_result == FALSE) { 
-  echo '<script type="text/javascript"> alert ("The image could not be uploaded. Please try again later."); window.history.back()</script>';
- } 
+if ($img_result == FALSE) { giveUploadErrorPopup(); } 
 // Check if image is valid and overwrite it as a PNG
 
 try {
@@ -27,7 +25,7 @@ catch(Exception $e) {
 
 function encodeImageWithMessage($message, $image)
 {
-
+  ini_set('memory_limit', '128M');
   $imageToModify = imagecreatefrompng($image);
   imagepalettetotruecolor($imageToModify);
   list($width, $height) = getimagesize($image);
@@ -111,26 +109,25 @@ function encodeImageWithMessage($message, $image)
 
 try {
   $im = encodeImageWithMessage($givenMessage, $target_img);
+  // Set the content type header - in this case image/jpeg
+  header('Content-Description: File Transfer');
+  header("Content-Type: application/octet-stream");
+  header('Content-Disposition: attachment; filename=' . $_FILES["imageUploaded"]["name"]);
+  header('Content-Transfer-Encoding: binary');
+  header('Expires: 0');
+  header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+  header('Pragma: public');
+
+  // Output the image
+  imagepng($im);
+
+  // Free up memory
+  imagedestroy($im);
 }
 catch(Exception $e) {
   giveErrorPopup($e);
 }
 
 
-// Set the content type header - in this case image/jpeg
-header('Content-Description: File Transfer');
-header("Content-Type: application/octet-stream");
-header('Content-Disposition: attachment; filename=' . $_FILES["imageUploaded"]["name"]);
-header('Content-Transfer-Encoding: binary');
-header('Expires: 0');
-header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-header('Pragma: public');
-
-// Output the image
-imagepng($im);
-
-// Free up memory
-
 unlink($target_img);
-imagedestroy($im);
 ?>
