@@ -6,7 +6,9 @@ include 'model.php';
 $target_dir = "../uploads/";
 $target_img = $target_dir . $_FILES["imageUploaded"]["name"];
 $img_result = move_uploaded_file($_FILES["imageUploaded"]["tmp_name"], $target_img);
-$givenMessage = $_POST["secretMessage"];
+
+if ($img_result == FALSE) { giveUploadErrorPopup(); } 
+// Check if image is valid and overwrite it as a PNG
 
 try {
   imagepng(imagecreatefromfile($target_img) , $target_img);

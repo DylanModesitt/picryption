@@ -2,15 +2,17 @@
 ini_set('max_execution_time', 0);
 // Model.php holds a variety of functions used across multiple scripts in picryption.
 include 'model.php';
-
 // Upload image to ../uploads/(file) so it can be encoded with a message
 
 $target_dir = "../uploads/";
 $target_img = $target_dir . $_FILES["imageUploaded"]["name"];
 $img_result = move_uploaded_file($_FILES["imageUploaded"]["tmp_name"], $target_img);
-$givenMessage = $_POST["secretMessage"];
+
+if ($img_result == FALSE) { giveUploadErrorPopup(); } 
+// Check if image is valid and overwrite it as a PNG
 
 try {
+  readExifData($target_img);
   imagepng(imagecreatefromfile($target_img) , $target_img);
 }
 catch(Exception $e) {
@@ -34,15 +36,15 @@ function obscureImage($image)
       $g = ($colors >> 8) & 0xFF;
       $b = $colors & 0xFF;
 
-      $rseed = $r/6;
+      $rseed = intval($r/6);
       mt_srand($rseed);
       $newRed = mt_rand(0,255);
 
-      $bseed = $b/6;
+      $bseed = intval($b/6);
       mt_srand($bseed);
       $newBlue = mt_rand(0,255);
 
-      $gseed = $g/6;
+      $gseed = intval($g/6);
       mt_srand($gseed);
       $newGreen = mt_rand(0,255);
 
