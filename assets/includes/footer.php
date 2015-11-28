@@ -3,7 +3,7 @@
 	<div class="DMblock-line"></div>
 	<br>
 	<div class="col-xs-12">
-		<p> Developed and Designed by <a href="http://www.dylanmodesitt.com">Dylan Modesitt</a> and William Johnson</p>
+		<p> Developed and Designed by <a href="http://www.dylanmodesitt.com">Dylan Modesitt</a> and <a href="https://www.linkedin.com/profile/view?id=AAkAABU5Ab8B3DQ5-8eqSBLghydSO6OnfoDGJMQ&authType=NAME_SEARCH&authToken=LFbs&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A356057535%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1448740643604%2Ctas%3Awill%20joh">Will Johnson</a> </p>
 	</div>
 	<br>
 	<br>
