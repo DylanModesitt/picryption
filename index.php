@@ -37,7 +37,7 @@
 								<br>
 								<br>
 								<input type="checkbox" name="HTML-support" checked > Message Supports HTML&nbsp;&nbsp;&nbsp;
-							<br><br><br><br>
+							<br><br><br>
 						</div>
 
 						<div class= "text-left center-block col-sm-6">
@@ -61,14 +61,13 @@
 				<h2>Read Image</h2>
 			</div>
 			<FORM METHOD='post' enctype="multipart/form-data"  ACTION='/assets/php/decodeMessage.php'>
-				<div class= "text-left left-block col-sm-12">
+				<div class= "text-left left-block col-sm-6">
 					<p class="big">Upload an image that has had a message encoded in it by Picryption. The message will open in a new page.</p>
 					<input id="uploadFileTwo" placeholder="Choose Image" disabled="disabled" />
 					<div class="fileUpload btn btn-danger">
 						<span>Upload Image</span>
 						<INPUT TYPE='file' class="upload" id="uploadBtnTwo" NAME='imageUploaded'/>
 					</div>
-					<br><br>
 					<br><br>
 				</div>
 				<div class= "text-left left-block col-sm-12">
