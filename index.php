@@ -19,7 +19,7 @@
 		<div class="dark">
 			<div class="container">
 				<div class="page-header">
-					<h2>Encrypt image <a href="#encryptImageInfo" class="portfolio-link" data-toggle="modal"> ? </a></h2>
+					<h2>Encrypt image <small><a href="#encryptImageInfo" class="portfolio-link" data-toggle="modal"> ? </a></small></h2>
 				</div>
 
 
