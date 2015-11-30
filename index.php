@@ -19,7 +19,7 @@
 		<div class="dark">
 			<div class="container">
 				<div class="page-header">
-					<h2>Encrypt image <small>with your message</small></h2>
+					<h2>Encrypt image</h2>
 				</div>
 				<div class ="center-block text-left uploadContent">
 					<FORM METHOD='post' enctype="multipart/form-data"  class="form-style-1" ACTION='./assets/php/encodeMessage.php'>
@@ -58,7 +58,7 @@
 <div class="">
 		<div class="container">
 			<div class="page-header">
-				<h2>Read Image <small>with encypted message</small></h2>
+				<h2>Read Image</h2>
 			</div>
 			<FORM METHOD='post' enctype="multipart/form-data"  ACTION='/assets/php/decodeMessage.php'>
 				<div class= "text-left left-block col-sm-12">
