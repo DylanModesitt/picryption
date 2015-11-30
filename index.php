@@ -19,8 +19,10 @@
 		<div class="dark">
 			<div class="container">
 				<div class="page-header">
-					<h2>Encrypt image</h2>
+					<h2>Encrypt image <a href="#encryptImageInfo" class="portfolio-link" data-toggle="modal"> ? </a></h2>
 				</div>
+
+
 				<div class ="center-block text-left uploadContent">
 					<FORM METHOD='post' enctype="multipart/form-data"  class="form-style-1" ACTION='./assets/php/encodeMessage.php'>
 						<div class= "text-left left-block col-sm-6">
@@ -58,7 +60,7 @@
 <div class="">
 		<div class="container">
 			<div class="page-header">
-				<h2>Read Image</h2>
+				<h2>Read Image <small>with encypted message</small></h2>
 			</div>
 			<FORM METHOD='post' enctype="multipart/form-data"  ACTION='/assets/php/decodeMessage.php'>
 				<div class= "text-left left-block col-sm-6">
@@ -78,5 +80,83 @@
 	</div>
 	<?php include 'assets/includes/footer.php'; ?>
 </div>
+
+
+
+
+
+<!-- info Modals -->
+
+    <div class="info-modal modal fade" id="encryptImageInfo" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Encrypt Image</h2>
+                            <br>
+                            <div class="DMblock-line"></div>
+                            <br>
+                            <p>
+                            	Picryption uses Steganography techniques to encrypt a message into any image and return
+                            	an identical image to the user that now contains the encoded image. The user can upload this
+                            	image back into Picryption to get the message back. 
+                            </p>
+                            <ul class="list-inline item-details">
+                                <li>Code:
+                                    <strong><a href="https://github.com/DylanModesitt/picryption">Github</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-modal modal fade" id="readImageInfo" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Encrypt Image</h2>
+                            <br>
+                            <div class="DMblock-line"></div>
+                            <br>
+                            <p>
+                            	Picryption uses Steganography techniques to encrypt a message into any image and return
+                            	an identical image to the user that now contains the encoded image. The user can upload this
+                            	image back into Picryption to get the message back. 
+                            </p>
+                            <ul class="list-inline item-details">
+                                <li>Code:
+                                    <strong><a href="https://github.com/DylanModesitt/picryption">Github</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>

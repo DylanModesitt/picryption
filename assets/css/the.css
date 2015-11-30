@@ -1,30 +1,82 @@
 /* CSS */
 /* Global */
-*:focus {
-    outline: 0;
+*:focus, *:after {
+    outline: 0 !important;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 
 body, html {
     width: 100%;
     height:100%;
     margin-top:20px;
-    font-family: "helvetica neue", helvetica, arial, sans-serif;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+    margin: 5px 0 5px;
+}
+h2 {
+    font-size: 30px;
+}
+h3 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin: 0 0 5px;
+}
+h4 {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+h5 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+h6 {
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+
+p {
+    line-height: 150%;
+}
+
 a {
     color:#d9534f;
     text-decoration:none;
 }
-a:hover {
-    color:#9f2623;
+
+a:hover,
+a:after,
+a:focus, {
+    color:#9f2623 !important;
     text-decoration:none;
     -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
 }
 
-p {
-    line-height: 150%;
+
+
+/* Reset Box Shadow */
+.btn,
+.form-control,
+.form-control:hover,
+.form-control:focus,
+.navbar-custom .dropdown-menu {
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
+
+
 
 input, 
 textarea {
@@ -167,7 +219,75 @@ button:focus {
     
 }
 
+/* Info Modal Styles*/
 
+.info-modal .modal-content {
+    padding: 100px 0;
+    min-height: 100%;
+    background-color: rgba(0,0,0,.8);
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    background-clip: border-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.info-modal .modal-content h2 {
+    color:#fff;
+    margin: 0;
+    font-size: 3em;
+}
+
+.info-modal .modal-content img {
+    margin-bottom: 30px;
+}
+
+.info-modal .modal-content .item-details {
+    margin: 30px 0;
+}
+
+.info-modal .close-modal {
+    position: absolute;
+    color: #fff !important;
+    top: 25px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.info-modal .close-modal:hover {
+    opacity: .3;
+}
+
+.info-modal .close-modal .lr {
+    z-index: 1051;
+    width: 1px;
+    height: 75px;
+    margin-left: 35px;
+    background-color: #2c3e50;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.info-modal .close-modal .lr .rl {
+    z-index: 1052;
+    width: 1px;
+    height: 75px;
+    background-color: #2c3e50;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.info-modal .modal-backdrop {
+    display: none;
+    opacity: 0;
+}
 
 
 /* Elements */
