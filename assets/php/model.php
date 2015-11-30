@@ -104,9 +104,13 @@ function encodeBitInColor($c, $currentBit) {
   return $newC;
 }
 
-function giveErrorPopup($e) {
-    echo '<script type="text/javascript"> alert ("There was an error encrypting your image. Please check everything and try agian."); window.history.back()</script>';
 
+function giveErrorPopup($e) {
+     if(strlen($e->getMessage()) > 0) {
+      echo '<script type="text/javascript"> alert ("Error: '.$e->getMessage().'"); window.history.back()</script>';
+     } else {
+      echo '<script type="text/javascript"> alert ("An error occured. Please check everything and try again."); window.history.back()</script>';
+     }
 }
 
 function giveUploadErrorPopup() {

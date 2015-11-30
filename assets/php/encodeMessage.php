@@ -46,11 +46,15 @@ function encodeImageWithMessage($message, $image)
   // check if check box for that option is checked
   if (isset($_POST['self-destruct'])) {
     $daysLeft = $_POST["days"];
-    $dayGood = date("d") + $daysLeft;
-    $dateGood = date("m.".$dayGood.".Y");
-    // get the binary message that includes a notice codon and a date
-    $binaryToAdd = "00000001".messageToBinary(strval($dateGood));
-    $binaryGiven = $binaryToAdd.$binaryGiven;
+    if (is_int($daysLeft)) {
+       $dayGood = date("d") + $daysLeft;
+      $dateGood = date("m.".$dayGood.".Y");
+      // get the binary message that includes a notice codon and a date
+      $binaryToAdd = "00000001".messageToBinary(strval($dateGood));
+      $binaryGiven = $binaryToAdd.$binaryGiven;
+    } else {
+      throw new InvalidArgumentException('The days left before self destruction must be an integer.');
+    }
   }
 
   // hide bit in r value
