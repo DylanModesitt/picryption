@@ -108,7 +108,8 @@
                             <p>
                             	Picryption uses Steganography techniques to encrypt a message into any image and return
                             	an identical image to the user that now contains the encoded image. The user can upload this
-                            	image back into Picryption to get the message back. 
+                            	image back into Picryption to get the message back. Just upload an image and create a message
+                            	to encode, then hit 'encrypt image' and your new image will be downloaded to later be decoded.
                             </p>
                             <ul class="list-inline item-details">
                                 <li>Code:
@@ -136,14 +137,15 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Encrypt Image</h2>
+                            <h2>Decrypt Image</h2>
                             <br>
                             <div class="DMblock-line"></div>
                             <br>
                             <p>
                             	Picryption uses Steganography techniques to encrypt a message into any image and return
                             	an identical image to the user that now contains the encoded image. The user can upload this
-                            	image back into Picryption to get the message back. 
+                            	image back into Picryption to get the message back. Just upload an image that has been encrypted 
+                            	with a message, hit 'decrypt image' and the message will be returned. 
                             </p>
                             <ul class="list-inline item-details">
                                 <li>Code:
