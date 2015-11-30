@@ -49,6 +49,10 @@ p {
     line-height: 150%;
 }
 
+p.big {
+    font-size:120%;
+}
+
 a {
     color:#d9534f;
     text-decoration:none;

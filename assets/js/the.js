@@ -1,4 +1,5 @@
 var size;
+var toShowCharacters = false;
 
 $("#uploadBtnOne").change(function (e) {
 	document.getElementById("uploadFileOne").value = this.value.replace(/^.*\\/, "");
@@ -17,14 +18,17 @@ $("#uploadBtnOne").change(function (e) {
                 image.onload = function () {
                     var height = this.height;
                     var width = this.width;
+                    toShowCharacters = true;
                     size = (height*width) / 8;
                 };
             }
 });
 
 $(".secretMessage").keyup(function(){
-    if(size) {
-        $("#count").text(size - $(this).val().length);
+    if(size && toShowCharacters) {
+        var str1 = "Characters remaining: ";
+        var str2 = size - $(this).val().length
+        $("#count").text(str1 + str2);
     }
 });
 
